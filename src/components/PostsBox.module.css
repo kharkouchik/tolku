@@ -1,0 +1,497 @@
+:root{
+    --postsBox-radius: 2vw;
+    --postsBox-padding: 1vw;
+}
+
+/* 1. Базовые (мобильные) стили — меню внизу */
+  
+.loading{
+    color: #f1f1f1;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+}
+
+.postsBox{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    box-sizing: border-box;
+    background-color: #282828;
+    padding: var(--postsBox-padding);
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 10vh;
+    width: -webkit-fill-available;
+    height: 100vh;
+}
+
+.choosePostsType {
+    display: flex;
+    flex-direction: row;
+    gap: 4vh;
+    position: absolute;
+    top: 1vh;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    background-color: #ffffff05;
+    padding: 1.3vh 4vh;
+    backdrop-filter: blur(4vh);
+    border-radius: 100vh;
+    z-index: 100;
+  }  
+
+.choosePostsType a{
+    cursor: no-drop;
+    color: #ffffff80;
+    font-weight: 450;
+    font-size: 2vh;
+}
+
+.choosePostsTypeSubs{
+    position: relative;
+}
+
+.choosePostsTypeSubs span{
+    position: absolute;
+    background-color: #e3ba4c;
+    width: 0.9vh;
+    height: 0.9vh;
+    border-radius: 100rem;
+    margin-left: -0.4vh;
+}
+
+.postsList {
+    flex-grow: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: white transparent;
+    scrollbar-width: none;
+  }
+  
+  /* Для WebKit-браузеров */
+  .postsList::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .postsList::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 3svh;
+  }
+  
+  .post {
+    padding: 2vh;
+    border-bottom: 1px solid #ffffff20;
+    margin-bottom: 2vh;
+  }
+
+  .postsList .post:first-child{
+    margin-top: 5vh;
+  }
+  
+  .postsList .post:last-child {
+    border-bottom: none;
+  }
+
+  .postHeader{
+    display: flex;
+    flex-direction: row;
+    gap: 2vh;
+    position: relative;
+  }
+
+  .postHeader .photo img{
+    width: 5vh;
+    border-radius: 100vw;
+    cursor: pointer;
+  }
+
+  .postSubHeader{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .moreBtn{
+    width: 1.8vh;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all .2s;
+    cursor: pointer;
+    padding: 1vw;
+  }
+
+  .moreBtn:hover{
+    scale: 1.2;
+  }
+
+  .popupMenu {
+    position: absolute;
+    top: 3vh;
+    right: 0;
+    background-color: #ffffff05;
+    backdrop-filter: blur(2vh);
+    color: white;
+    border-radius: 2vh;
+    border: 1px solid #ffffff10;
+    padding: 1vh;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+  }
+  
+  .popupMenu button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8vh;
+    cursor: pointer;
+    text-align: left;
+    padding: 1vh 2vw;
+  }
+
+  .popupMenu button:hover{
+    background-color: #ffffff10;
+    border-radius: 1vh;
+  }
+
+  .popupMenu button:last-child{
+    color: #ff6a6a;
+  }
+
+  .popupMenu button:last-child:hover{
+    background-color: #ff6a6a10;
+  }
+
+  .author{
+    color: #f1f1f1;
+    font-size: 2vh;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .date{
+    color: #ffffff40;
+    font-size: 1.6vh;
+    font-weight: 400;
+  }
+
+  .postContent{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+    padding-left: 1vh;
+    padding-bottom: 2vh;
+    color: #f1f1f1;
+    font-size: 2.1vh;
+  }
+
+  .actions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5vh;
+    margin-top: 1vh;
+  }
+
+  .like{
+    display: flex;
+    flex-direction: row;
+    gap: 0.8vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .like p{
+    color: #ffffff90;
+    font-size: 2vh;
+    font-weight: 450;
+  }
+
+  .like img{
+    opacity: 0.8;
+    width: 2.7vh;
+    cursor: pointer;
+    transition: all .2s;
+  }
+
+  .like img:hover{
+    scale: 1.1;
+  }
+
+  .comment{
+    display: flex;
+    flex-direction: row;
+    gap: 0.8vh;
+  }
+
+  .comment p{
+    color: #ffffff90;
+    font-size: 2vh;
+    font-weight: 450;
+  }
+
+  .comment img{
+    opacity: 0.8;
+    width: 2.7vh;
+    cursor: pointer;
+    transition: all .2s;
+  }
+
+  .comment img:hover{
+    scale: 1.1;
+  }
+
+
+  /* 2. С планшетов и выше (например, от 768px) — меню сбоку */
+  @media (min-width: 860px) {
+
+    .loading{
+        color: #f1f1f1;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        height: 20vh;
+    }
+
+    .postsBox{
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        margin-left: calc(var(--menu-width) + 10vw);
+        z-index: 10;
+        box-sizing: border-box;
+        background-color: #282828;
+        border: 1px solid #ffffff20;
+        border-bottom: none;
+        border-top-right-radius: var(--postsBox-radius);
+        border-top-left-radius: var(--postsBox-radius);
+        padding: var(--postsBox-padding);
+        padding-top: 0;
+        padding-bottom: 0;
+        width: 50vw;
+        height: 90vh;
+    }
+
+    .choosePostsType{
+        display: flex;
+        flex-direction: row;
+        gap: 2vw;
+        position: absolute;
+        margin-top: -8.5vh;
+        width: 100%;
+        margin-left: -2vw;
+        justify-content: center;
+        background: none;
+    }
+
+    .choosePostsType a{
+        cursor: no-drop;
+        color: #ffffff80;
+        font-weight: 450;
+        font-size: 1.1vw;
+    }
+
+    .choosePostsTypeSubs{
+        position: relative;
+    }
+
+    .choosePostsTypeSubs span{
+        position: absolute;
+        background-color: #e3ba4c;
+        width: 0.5vw;
+        height: 0.5vw;
+        border-radius: 100rem;
+        border: 0.3vw solid #232323;
+        margin-left: -0.4vw;
+    }
+
+    .postsList {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding-right: 0.5vw;
+        scrollbar-width: thin;
+        scrollbar-color: white transparent;
+        scrollbar-width: none;
+      }
+      
+      /* Для WebKit-браузеров */
+      .postsList::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .postsList::-webkit-scrollbar-thumb {
+        background-color: white;
+        border-radius: 3px;
+      }
+      
+      .post {
+        padding: 0.5vw;
+        border-bottom: 1px solid #ffffff20;
+        margin-bottom: 2vh;
+      }
+      
+      .postsList .post:last-child {
+        border-bottom: none;
+      }
+
+      .postsList .post:first-child{
+        margin-top: 1.2vh;
+      }
+
+      .postHeader{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        gap: 1vw;
+      }
+
+      .postHeader .photo img{
+        width: 3vw;
+        border-radius: 100vw;
+        cursor: pointer;
+      }
+
+      .postSubHeader{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .moreBtn{
+        width: 0.9vw;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all .2s;
+        cursor: pointer;
+        padding: 1vw;
+      }
+
+      .moreBtn:hover{
+        scale: 1.2;
+      }
+
+      .popupMenu {
+        position: absolute;
+        top: 4vh;
+        right: 0;
+        background-color: #ffffff05;
+        backdrop-filter: blur(1vw);
+        color: white;
+        border-radius: 1vw;
+        border: 1px solid #ffffff10;
+        padding: 1vh;
+        z-index: 200;
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+      }
+      
+      .popupMenu button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1vw;
+        cursor: pointer;
+        text-align: left;
+        padding: 0.5vw 1vw;
+      }
+
+      .popupMenu button:hover{
+        background-color: #ffffff10;
+        border-radius: 0.65vw;
+      }
+
+      .popupMenu button:last-child{
+        color: #ff6a6a;
+      }
+
+      .author{
+        color: #f1f1f1;
+        font-size: 1vw;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .date{
+        color: #ffffff40;
+        font-size: 1vw;
+        font-weight: 400;
+      }
+
+      .postContent{
+        display: flex;
+        flex-direction: column;
+        margin-top: 1vh;
+        padding-left: 1vw;
+        padding-bottom: 2vh;
+        color: #f1f1f1;
+        font-size: 1.1vw;
+      }
+
+      .actions{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5vw;
+        margin-top: 1vw;
+        margin-bottom: 0.5vw;
+      }
+
+      .like{
+        display: flex;
+        flex-direction: row;
+        gap: 0.3vw;
+      }
+
+      .like p{
+        color: #ffffff90;
+        font-size: 1vw;
+        font-weight: 450;
+      }
+
+      .like img{
+        opacity: 0.8;
+        width: 1.2vw;
+        cursor: pointer;
+        transition: all .2s;
+      }
+
+      .like img:hover{
+        scale: 1.1;
+      }
+
+      .comment{
+        display: flex;
+        flex-direction: row;
+        gap: 0.3vw;
+      }
+
+      .comment p{
+        color: #ffffff90;
+        font-size: 1vw;
+        font-weight: 450;
+      }
+
+      .comment img{
+        opacity: 0.8;
+        width: 1.2vw;
+        cursor: pointer;
+        transition: all .2s;
+      }
+
+      .comment img:hover{
+        scale: 1.1;
+      }
+  }
